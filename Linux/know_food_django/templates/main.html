@@ -1,0 +1,113 @@
+
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+ 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="{% static 'FileUpload/style.css' %}">
+	<script type="text/javascript" src="{% static 'FileUpload/script.js' %}"></script>
+	<link rel="stylesheet" type="text/css" href="{% static 'MDB/css/bootstrap.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'MDB/css/mdb.css' %}">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script type="text/javascript" src="{% static 'MDB/js/mdb.js' %}"></script>
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+	<!-- Bootstrap core CSS -->
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+	<!-- Material Design Bootstrap -->
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.3/css/mdb.min.css" rel="stylesheet">
+	<!-- JQuery -->
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<!-- Bootstrap tooltips -->
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+	<!-- Bootstrap core JavaScript -->
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+	<!-- MDB core JavaScript -->
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.3/js/mdb.min.js"></script>
+</head>
+<body>
+<!--Navbar -->
+<nav class="mb-1 navbar navbar-expand-lg navbar-dark deep-purple darken-1">
+  <a class="navbar-brand" href="#">Know Food</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-333"
+    aria-controls="navbarSupportedContent-333" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent-333">
+    <ul class="navbar-nav mr-auto">
+      <!-- <li class="nav-item active">
+        <a class="nav-link" href="#">Home
+          <span class="sr-only">(current)</span>
+        </a>
+      </li> -->
+      <!-- <li class="nav-item">
+        <a class="nav-link" href="#">Features</a>
+      </li> -->
+      <!-- <li class="nav-item">
+        <a class="nav-link" href="#">Pricing</a>
+      </li> -->
+      <!-- <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-333" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">Dropdown
+        </a> -->
+        <div class="dropdown-menu dropdown-default" aria-labelledby="navbarDropdownMenuLink-333">
+          <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+      </li>
+    </ul>
+    <ul class="navbar-nav ml-auto nav-flex-icons">
+     <!--  <li class="nav-item">
+        <a class="nav-link waves-effect waves-light">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li> -->
+      <!-- <li class="nav-item">
+        <a class="nav-link waves-effect waves-light">
+          <i class="fab fa-google-plus-g"></i>
+        </a>
+      </li> -->
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-333" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
+          <i class="fas fa-user"></i>
+        </a>
+        <div class="dropdown-menu dropdown-menu-right dropdown-default"
+          aria-labelledby="navbarDropdownMenuLink-333">
+          <a class="dropdown-item" href="#">Profile</a>
+          <a class="dropdown-item" href="logout">Logout</a>
+        </div>
+      </li>
+    </ul>
+  </div>
+</nav>
+<!--/.Navbar -->
+		<div class="file-upload">
+		  <button class="file-upload-btn" type="button" onclick="$('.file-upload-input').trigger( 'click' )">Add Image</button>
+		  <form method="POST" name="my_form" enctype="multipart/form-data">
+		  	{% csrf_token %}
+			  <div class="image-upload-wrap">
+			    <input name="my_file" class="file-upload-input" type='file' onchange="readURL(this);" accept="image/*" />
+			    <div class="drag-text">
+			      <h3>Drag and drop a file or select add Image</h3>
+			    </div>
+			  </div>
+			  <div class="file-upload-content">
+			    <img class="file-upload-image" src="#" alt="your image" />
+			    <div class="image-title-wrap">
+			      <button type="button" onclick="removeUpload()" class="remove-image">Remove <span class="image-title">Uploaded Image</span></button>
+			    </div>
+
+			  </div>
+
+			  <br>
+			  <div class = "text-center">
+			  <input type="submit" class="btn btn-secondary text-center">
+		  	</div>
+		  </form>
+		</div>
+</body>
+</html>
